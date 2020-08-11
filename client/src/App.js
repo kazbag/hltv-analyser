@@ -3,6 +3,7 @@ import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
+import variables from "./utils/variables";
 import "./global/styles.css";
 
 const App = () => {
@@ -22,6 +23,9 @@ const App = () => {
   );
 };
 
-const StyledApp = styled.div``;
+const StyledApp = styled.div`
+  min-height: 100vh;
+  background: ${variables.darkColor};
+`;
 
 export default App;

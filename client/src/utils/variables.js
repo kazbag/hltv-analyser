@@ -7,4 +7,7 @@ export default {
   darkColor: "#272727",
   paragraphTextSize: "1.6rem",
   paddingSmall: "1rem",
+  paddingPage: "4.75rem 19rem",
+  mainFontStyle: "Raleway, sans-serif",
+  titleFontStyle: "Lora, serif",
 };
