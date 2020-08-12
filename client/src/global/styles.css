@@ -52,3 +52,16 @@ h6 {
 p {
   font-size: 1.6rem;
 }
+
+button {
+  background: #fff;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #fff;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+button:hover {
+  box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.5);
+}
