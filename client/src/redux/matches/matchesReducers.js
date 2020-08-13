@@ -9,7 +9,7 @@ const matchesReducer = (state = initialState, action) => {
     case GET_MATCHES:
       return {
         ...state,
-        numOfMatches: state.numOfMatches + 1,
+        numOfMatches: state.numOfMatches + parseInt(action.payload),
       };
     default:
       return state;
