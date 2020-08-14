@@ -8,7 +8,7 @@ const Homepage = () => {
   return (
     <StyledHomepageContainer>
       <h3>hello world</h3>
-      <MatchesContainer />
+      <MatchesContainer newProp="yo" />
       <NewsContainer />
     </StyledHomepageContainer>
   );

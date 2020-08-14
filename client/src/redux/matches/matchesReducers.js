@@ -1,15 +1,33 @@
-import { GET_MATCHES } from "./matchesTypes";
+import {
+  FETCH_MATCHES_REQUEST,
+  FETCH_MATCHES_SUCCESS,
+  FETCH_MATCHES_FAILURE,
+} from "./matchesTypes";
 
 const initialState = {
-  numOfMatches: 3,
+  loading: false,
+  matches: [],
+  error: "",
 };
 
 const matchesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MATCHES:
+    case FETCH_MATCHES_REQUEST:
       return {
         ...state,
-        numOfMatches: state.numOfMatches + parseInt(action.payload),
+        loading: true,
+      };
+    case FETCH_MATCHES_SUCCESS:
+      return {
+        loading: false,
+        matches: action.payload,
+        error: "",
+      };
+    case FETCH_MATCHES_FAILURE:
+      return {
+        loading: false,
+        matches: [],
+        error: action.payload,
       };
     default:
       return state;
