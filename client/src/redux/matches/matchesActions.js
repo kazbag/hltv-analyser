@@ -26,25 +26,26 @@ export const fetchMatchesSuccess = (matches) => {
     payload: matches,
   };
 };
+
 export const fetchMatchesFailure = (error) => {
   return {
     type: FETCH_MATCHES_FAILURE,
     payload: error,
   };
 };
+
 export const fetchMatches = () => {
   return (dispatch) => {
-    dispatch(fetchMatchesRequest);
+    dispatch(fetchMatchesRequest());
     axios
       .get(`${apiUri}/matches`)
       .then((res) => {
-        console.log(res.data);
         const matches = res.data;
-        dispatch(fetchMatchesSuccess(matches));
+        return dispatch(fetchMatchesSuccess(matches));
       })
       .catch((err) => {
         const errorMsg = err.message;
-        dispatch(fetchMatchesFailure(errorMsg));
+        return dispatch(fetchMatchesFailure(errorMsg));
       });
   };
 };

@@ -1,0 +1,18 @@
+.matches__container {
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style-type: none;
+}
+
+.match {
+  &__item {
+    padding: 2rem;
+    border: 1px solid #6930c3;
+    color: #fff;
+    background: rgba(#383838, 0.55);
+    border-radius: 0.6rem;
+  }
+}
