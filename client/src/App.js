@@ -4,14 +4,12 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
-import variables from "./utils/variables";
-import "./global/styles.css";
+import "./components/styles/main.scss";
 
 const App = () => {
   return (
     <Provider store={store}>
-      <StyledApp>
+      <div className="App">
         <Router>
           <Navbar />
           <Switch>
@@ -22,14 +20,9 @@ const App = () => {
             <Route path="/profile" component={Homepage} />
           </Switch>
         </Router>
-      </StyledApp>
+      </div>
     </Provider>
   );
 };
-
-const StyledApp = styled.div`
-  min-height: 100vh;
-  background: ${variables.darkColor};
-`;
 
 export default App;

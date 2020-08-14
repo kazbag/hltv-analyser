@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import variables from "../utils/variables";
 import MatchesContainer from "../components/MatchesContainer";
 import NewsContainer from "../components/NewsContainer";
 
 const Homepage = () => {
   return (
-    <StyledHomepageContainer>
-      <h3>hello world</h3>
-      <MatchesContainer newProp="yo" />
+    <div className="homepage">
+      <MatchesContainer />
       <NewsContainer />
-    </StyledHomepageContainer>
+    </div>
   );
 };
 
-const StyledHomepageContainer = styled.div`
-  padding: ${variables.paddingPage};
-  background: ${variables.darkColor};
-  color: ${variables.whiteColor};
-`;
+// const StyledHomepageContainer = styled.div`
+//   padding: ${variables.paddingPage};
+//   padding-top: 0;
+//   background: ${variables.darkColor};
+//   color: ${variables.whiteColor};
+// `;
 
 export default Homepage;

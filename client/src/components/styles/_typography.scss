@@ -1,0 +1,42 @@
+* {
+}
+.heading {
+  font-family: Lora, serif;
+  &--title {
+    padding: 4rem 0;
+    &--small {
+      padding: 2rem 0;
+    }
+  }
+  &--darken {
+    opacity: 0.8;
+  }
+}
+
+.heading-1 {
+  font-size: 4.8rem;
+}
+
+.heading-2 {
+  font-size: 4rem;
+}
+
+.heading-3 {
+  font-size: 3.6rem;
+}
+
+.heading-4 {
+  font-size: 2.4rem;
+}
+
+.heading-5 {
+  font-size: 2rem;
+}
+
+.heading-6 {
+  font-size: 1.6rem;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+}

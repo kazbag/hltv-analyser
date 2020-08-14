@@ -1,0 +1,32 @@
+.nav {
+  background: $primaryColor;
+  display: flex;
+  column-gap: 2rem;
+  padding: $buttonPadding;
+  &__link {
+    position: relative;
+    font-size: $paragraphTextSize;
+    padding: $paddingSmall;
+    text-decoration: none;
+    color: $whiteColor;
+    transition: 0.25s ease-in-out;
+    p {
+      position: relative;
+      z-index: 10;
+    }
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background: $darkColor;
+      opacity: 0.15;
+      z-index: 0;
+      transition: 0.35s ease-in-out;
+    }
+    &:hover span {
+      width: 100%;
+    }
+  }
+}
