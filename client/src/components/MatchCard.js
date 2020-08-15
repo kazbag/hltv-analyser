@@ -1,39 +1,37 @@
 import React from "react";
 
-const MatchCard = ({ props }) => {
-  console.log(props);
+const MatchCard = (props) => {
+  const { event, date, format, live, stars, team1, team2 } = props.props;
   return (
     <li className="match__item">
-      <h6 className="heading heading--darken heading--title--small heading-6">
-        {props.event ? props.event.name : "TBA"}
+      <h6 className="heading heading--darken heading--title--small heading-6 match__heading">
+        {event ? event.name : "TBA"}
       </h6>
+      <p className="paragraph--small item__date">
+        {date && !live ? new Date(date).toLocaleString() : "playing"}
+      </p>
       <p
         className={
-          "match__status " +
-          (props.live === true
+          "paragraph--small match__status " +
+          (live === true
             ? "match__status--is-live"
             : "match__status--is-not-live")
         }
       >
-        {props.live ? "live" : "not live"}
+        {live ? "live" : "off"}
       </p>
-      <p className="match__format">{props.format && props.format}</p>
+      <p className="paragraph--small match__format">{format && format}</p>
+      <ul className="match__stars"></ul>
       <p className="match__teams">
-        {props.team1 ? props.team1.name + " vs " : "TBA vs "}
-        {props.team2 ? props.team2.name : "TBA"}
+        {team1 ? team1.name + " vs " : "TBA vs "}
+        {team2 ? team2.name : "TBA"}
       </p>
       <div className="match__links">
         <a
-          className="match__link match__link--team match__link--team1"
-          href="#"
+          className="match__link match__link--team match__link--stream"
+          href={`https://hltv.org/team/`}
         >
           Team 1
-        </a>
-        <a
-          className="match__link match__link--team match__link--team1"
-          href="#"
-        >
-          Team 2
         </a>
       </div>
     </li>

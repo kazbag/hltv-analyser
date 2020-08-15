@@ -1,5 +1,8 @@
 import React from "react";
 import Homepage from "./pages/Homepage";
+import AllMatches from "./pages/AllMatches";
+import LiveMatches from "./pages/LiveMatches";
+import OfflineMatches from "./pages/OfflineMatches";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Navbar from "./components/Navbar";
@@ -13,10 +16,10 @@ const App = () => {
         <Router>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/during" component={Homepage} />
-            <Route path="/incoming" component={Homepage} />
-            <Route path="/history" component={Homepage} />
+            <Route exact path="/" component={AllMatches} />
+            <Route path="/matches/live" component={LiveMatches} />
+            <Route path="/matches/upcoming" component={OfflineMatches} />
+            <Route path="/matches/history" component={Homepage} />
             <Route path="/profile" component={Homepage} />
           </Switch>
         </Router>

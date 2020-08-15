@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import MatchesContainer from "../components/MatchesContainer";
-import NewsContainer from "../components/NewsContainer";
+import React from "react";
 
 const Homepage = () => {
   return (
-    <div className="homepage">
-      <MatchesContainer />
-      <NewsContainer />
-    </div>
+    <section className="section section__homepage">
+      <h3 className="heading heading-3">That's homepage</h3>
+    </section>
   );
 };
-
-// const StyledHomepageContainer = styled.div`
-//   padding: ${variables.paddingPage};
-//   padding-top: 0;
-//   background: ${variables.darkColor};
-//   color: ${variables.whiteColor};
-// `;
 
 export default Homepage;

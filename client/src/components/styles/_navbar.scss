@@ -8,7 +8,7 @@
     font-size: $paragraphTextSize;
     padding: $paddingSmall;
     text-decoration: none;
-    color: $whiteColor;
+    color: rgba($whiteColor, 0.8);
     transition: 0.25s ease-in-out;
     p {
       position: relative;
@@ -27,6 +27,9 @@
     }
     &:hover span {
       width: 100%;
+    }
+    &.active {
+      color: $whiteColor;
     }
   }
 }
