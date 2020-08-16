@@ -1,0 +1,18 @@
+.section-profile {
+}
+
+.profile {
+  &__navbar {
+    margin-top: 4rem;
+    width: auto;
+    display: flex;
+    background: none;
+    .nav__link {
+      border-bottom: 1px solid $secondaryColor;
+      &.active {
+        background: $secondaryColor;
+        color: $darkColor;
+      }
+    }
+  }
+}

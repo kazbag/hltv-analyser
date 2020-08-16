@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Homepage from "./pages/Homepage";
+import ProfilePage from "./pages/ProfilePage";
 import AllMatches from "./pages/AllMatches";
 import LiveMatches from "./pages/LiveMatches";
 import OfflineMatches from "./pages/OfflineMatches";
@@ -20,7 +21,7 @@ const App = () => {
             <Route path="/matches/live" component={LiveMatches} />
             <Route path="/matches/upcoming" component={OfflineMatches} />
             <Route path="/matches/history" component={Homepage} />
-            <Route path="/profile" component={Homepage} />
+            <Route path="/profile" component={ProfilePage} />
           </Switch>
         </Router>
       </div>
