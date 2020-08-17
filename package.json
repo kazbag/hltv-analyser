@@ -1,12 +1,12 @@
 {
-  "name": "hltv-matches",
-  "version": "0.1.0",
-  "description": "",
+  "name": "hltv-analyser",
+  "version": "0.1.1",
+  "description": "hltv matches analyser",
   "main": "index.js",
   "scripts": {
     "install:client": "cd client && npm i",
     "install:api": "cd api && npm i",
-    "install:all": "npm run install:api && npm run install:client",
+    "install:all": "npm install && npm run install:api && npm run install:client",
     "dev:api": "cd api && npm run start:dev",
     "dev:client": "cd client && npm run start:dev",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kazbag/hltv-matches.git"
+    "url": "git+https://github.com/kazbag/hltv-analyser.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kazbag/hltv-matches/issues"
+    "url": "https://github.com/kazbag/hltv-analyser/issues"
   },
-  "homepage": "https://github.com/kazbag/hltv-matches#readme",
+  "homepage": "https://github.com/kazbag/hltv-analyser#readme",
   "dependencies": {
     "concurrently": "^5.3.0",
     "cryptr": "^6.0.2",
