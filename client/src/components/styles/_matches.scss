@@ -3,8 +3,14 @@
   text-align: center;
   display: grid;
   grid-gap: 3rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   list-style-type: none;
+  @media screen and (max-width: $desktop) {
+    grid-gap: 2rem;
+  }
+  @media screen and (max-width: $phablet) {
+    grid-gap: 1rem;
+  }
 }
 
 .match {
@@ -12,10 +18,13 @@
     position: relative;
     padding: 2rem;
     border: 1px solid $primaryColor;
-    color: $whiteColor;
+    background: rgba($whiteColor, 0.95);
     border-radius: 0.6rem;
+    color: rgba($darkColor, 0.8);
   }
   &__heading {
+    font-weight: 700;
+    color: rgba($darkColor, 0.95);
   }
   &__format {
     position: absolute;
@@ -27,6 +36,8 @@
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     &--is-live {
       color: $successColor;
     }
@@ -35,7 +46,12 @@
     }
   }
   &__date {
-    color: $primaryColor;
+    color: rgba($darkColor, 0.35);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  &__teams {
+    font-size: 2rem;
   }
   &__links {
     display: flex;
@@ -43,8 +59,9 @@
   }
   &__link {
     text-decoration: none;
-    color: $secondaryColor;
     transition: 0.35s ease-in-out;
+    color: $successColor;
+    font-size: 1.4rem;
     padding: 0.5rem 1.5rem;
     &:hover {
       color: $darkColor;
