@@ -22,3 +22,16 @@
 - You'll have to provide secret env variable to decrypt keys. **_not done yet_**
 - Just clone "\_env" file and rename it into ".env" and change "SECRET=xxx" into secret key which you can get via contact with me **_not done yet_**
 - If you'd like to just run a project on test/local database, change SECRET into "SECRET=TEST" **_not done yet_**
+
+## Technologies and tools used
+
+- React.js with hooks
+- Redux with thunk
+- Node.js & Express.js
+- Axios for simplify HTTP requests instead of fetch API
+
+## Known bugs and todos
+
+- Redux should be moved one layer above to restrain amount of requests
+- RWD doesn't exists yet
+- You have to provide "SKIP_PREFLIGHT_CHECK=true" into **_.env_** file to run app
