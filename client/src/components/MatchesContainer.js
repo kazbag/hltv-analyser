@@ -28,7 +28,7 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
   if (allMatches) {
     return (
       <div className="matches__container">
-        <h3 className="heading heading--title heading-3">Matches</h3>
+        <h3 className="heading heading--title heading-3">All matches</h3>
         <ul className="matches__container__matches">
           {allMatchesData.length < 1
             ? "loading"
@@ -41,7 +41,7 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
   } else if (liveMatches) {
     return (
       <div className="matches__container">
-        <h3 className="heading heading--title heading-3">Matches</h3>
+        <h3 className="heading heading--title heading-3">Live matches</h3>
         <ul className="matches__container__matches">
           {liveMatchesData.length < 1
             ? "loading"
@@ -54,7 +54,7 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
   } else if (offlineMatches) {
     return (
       <div className="matches__container">
-        <h3 className="heading heading--title heading-3">Matches</h3>
+        <h3 className="heading heading--title heading-3">Offline matches</h3>
         <ul className="matches__container__matches">
           {offlineMatchesData.length < 1
             ? "loading"

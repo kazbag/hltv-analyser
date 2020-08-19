@@ -15,4 +15,13 @@
       }
     }
   }
+  &__data__list {
+    &-item {
+      color: rgba($whiteColor, 0.8);
+      &--username {
+        color: rgba($secondaryColor, 0.9);
+        font-size: 2.4rem;
+      }
+    }
+  }
 }
