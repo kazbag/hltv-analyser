@@ -7,6 +7,11 @@
 - You'd be able to calculate probability of win specific match by team X or team Y #longtermtodo
 - Lot more #todo
 
+## What do you need to install before run?
+
+- Node.js installed
+- MongoDB community server installed
+
 ## How to install?
 
 ```bash
@@ -34,4 +39,4 @@
 
 - Redux should be moved one layer above to restrain amount of requests
 - RWD doesn't exists yet
-- You have to provide "SKIP_PREFLIGHT_CHECK=true" into **_.env_** file to run app
+- You have to provide "SKIP\*PREFLIGHT_CHECK=true" into \*\*\*.env\_\*\* file to run app
