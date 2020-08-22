@@ -18,7 +18,7 @@ matches.get("/user-matches", async (req, res, next) => {
 
 matches.post("/user-matches", async (req, res, next) => {
   console.log(req.body);
-  const { event, id, live, stars, team1, team2 } = req.body || {};
+  const { event, id, live, stars, team1, team2 } = req.body.matchData || {};
   const newUserMatch = new MatchesModel({
     event,
     id,
@@ -43,6 +43,18 @@ matches.delete("/user-matches/:id", async (req, res, next) => {
     res.json(deletedUserMatch);
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+
+matches.delete("/user-matches-all/", async (req, res) => {
+  try {
+    const allMatches = await MatchesModel.find().exec();
+    allMatches.forEach((match) =>
+      MatchesModel.deleteOne({ _id: match._id }).exec()
+    );
+    res.send(allMatches);
+  } catch (err) {
+    console.log(err);
   }
 });
 

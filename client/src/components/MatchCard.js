@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Button from "./Form/Button";
+import axios from "axios";
+import { apiUri } from "../cfg";
+
+const addMatchToFavourites = (matchData) => {
+  console.log(matchData);
+  axios
+    .post(`${apiUri}/matches/user-matches`, { matchData })
+    .then((repsonse) => console.log(repsonse))
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 const MatchCard = (props) => {
-  const { event, date, format, live, stars, team1, team2 } = props.props;
+  const { event, id, date, format, live, stars, team1, team2 } = props.props;
+  const [matchData, setMatchData] = useState({});
+
+  useEffect(() => {
+    setMatchData(props.props);
+  }, [props.props]);
+
   return (
     <li className="match__item">
       <h6 className="heading heading--darken heading--title--small heading-6 match__heading">
@@ -46,6 +65,13 @@ const MatchCard = (props) => {
           </a>
         </div>
       ) : null}
+      <Button
+        text="Save match"
+        type="button"
+        name="button--favourite"
+        style="white"
+        onClick={() => addMatchToFavourites(matchData)}
+      ></Button>
     </li>
   );
 };
