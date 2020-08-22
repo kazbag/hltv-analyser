@@ -16,6 +16,7 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
 
   useEffect(() => {
     setAllMatchesData(matches.matches);
+    console.log(matches.matches);
   }, [matches]);
 
   useEffect(() => {

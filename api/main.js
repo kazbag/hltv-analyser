@@ -3,6 +3,7 @@ const path = require("path");
 const cors = require("cors");
 const PORT = process.env.API_PORT || 3001;
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 const connectDB = async () => {
   const dbURI =
@@ -35,8 +36,11 @@ const teamsRoute = require("./routes/teams");
 
 const express = require("express");
 const app = express();
-app.use(cors());
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
 app.use("/matches", matchesRoute);
 app.use("/teams", teamsRoute);
 
