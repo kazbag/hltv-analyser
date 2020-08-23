@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { fetchMatches } from "../redux";
 import MatchCard from "./MatchCard";
-
+import Modal from "./Modal";
 const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
   const [allMatchesData, setAllMatchesData] = useState([]);
   const [liveMatchesData, setLiveMatchesData] = useState([]);
@@ -29,6 +29,7 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
   if (allMatches) {
     return (
       <div className="matches__container">
+        <Modal />
         <h3 className="heading heading--title heading-3">All matches</h3>
         <ul className="matches__container__matches">
           {allMatchesData.length < 1

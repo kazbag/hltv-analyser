@@ -1,0 +1,16 @@
+.modal {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  position: fixed;
+  background: rgba($darkColor, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  margin: 0 auto;
+  color: $successColor;
+  flex-direction: column;
+}
