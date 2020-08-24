@@ -3,11 +3,19 @@ import Button from "./Form/Button";
 import axios from "axios";
 import { apiUri } from "../cfg";
 
+const showToast = () => {
+  alert("added match to favourites");
+};
+
 const addMatchToFavourites = (matchData) => {
-  console.log(matchData);
   axios
     .post(`${apiUri}/matches/user-matches`, { matchData })
-    .then((repsonse) => console.log(repsonse))
+    .then((res) => {
+      console.log(res.status);
+      if (res.status === 200) {
+        showToast();
+      }
+    })
     .catch((err) => {
       console.log(err);
     });
