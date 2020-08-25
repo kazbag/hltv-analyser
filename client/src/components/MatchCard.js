@@ -2,28 +2,34 @@ import React, { useState, useEffect } from "react";
 import Button from "./Form/Button";
 import axios from "axios";
 import { apiUri } from "../cfg";
-
-const showToast = () => {
-  alert("added match to favourites");
-};
-
-const addMatchToFavourites = (matchData) => {
-  axios
-    .post(`${apiUri}/matches/user-matches`, { matchData })
-    .then((res) => {
-      console.log(res.status);
-      if (res.status === 200) {
-        showToast();
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+import Toast from "./Toast";
 
 const MatchCard = (props) => {
+  const [isToastVisible, setIsToastVisible] = useState(false);
+
   const { event, id, date, format, live, stars, team1, team2 } = props.props;
   const [matchData, setMatchData] = useState({});
+
+  const showToast = () => {
+    setIsToastVisible(true);
+    setTimeout(() => {
+      setIsToastVisible(false);
+    }, 2000);
+  };
+
+  const addMatchToFavourites = (matchData) => {
+    axios
+      .post(`${apiUri}/matches/user-matches`, { matchData })
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 200) {
+          showToast();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     setMatchData(props.props);
@@ -31,6 +37,11 @@ const MatchCard = (props) => {
 
   return (
     <li className="match__item">
+      <Toast
+        toastVisible={isToastVisible}
+        message="Added match to favourite!"
+      />
+
       <h6 className="heading heading--darken heading--title--small heading-6 match__heading">
         {event ? event.name : "TBA"}
       </h6>

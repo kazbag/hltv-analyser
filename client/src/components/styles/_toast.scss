@@ -1,0 +1,17 @@
+.toast {
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  margin-left: -15rem;
+  top: 50%;
+  margin-top: -5rem;
+  border-radius: 1rem;
+  width: 30rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($primaryColor, 0.85);
+  color: $whiteColor;
+  font-size: $paragraphTextSize;
+}

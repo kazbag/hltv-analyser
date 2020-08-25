@@ -29,7 +29,6 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
     return (
       <div className="matches__container">
         <h3 className="heading heading--title heading-3">All matches</h3>
-
         <ul className="matches__container__matches">
           {allMatchesData.length < 1
             ? "loading"
