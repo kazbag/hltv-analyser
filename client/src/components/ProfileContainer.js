@@ -1,8 +1,8 @@
 import React from "react";
 import ProfileSettings from "./ProfileSettings";
 
-const renderSwitch = (pathname) => {
-  switch (pathname) {
+const renderProfileComponentSwitch = (currentPath) => {
+  switch (currentPath) {
     case "/profile":
       return <ProfileSettings username="test_user" />;
       break;
@@ -16,8 +16,11 @@ const renderSwitch = (pathname) => {
 };
 
 const ProfileContainer = ({ pathname }) => {
-  console.log(pathname);
-  return <div className="profile-container">{renderSwitch(pathname)} </div>;
+  return (
+    <div className="profile-container">
+      {renderProfileComponentSwitch(pathname)}{" "}
+    </div>
+  );
 };
 
 export default ProfileContainer;
