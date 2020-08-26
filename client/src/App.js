@@ -21,7 +21,9 @@ const App = () => {
             <Route path="/matches/live" component={LiveMatches} />
             <Route path="/matches/upcoming" component={OfflineMatches} />
             <Route path="/matches/history" component={Homepage} />
-            <Route path="/profile" component={ProfilePage} />
+            <Route exact path="/profile" component={ProfilePage} />
+            <Route path="/profile/teams" component={ProfilePage} />
+            <Route path="/profile/matches" component={ProfilePage} />
           </Switch>
         </Router>
       </div>

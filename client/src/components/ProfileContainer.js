@@ -1,21 +1,23 @@
 import React from "react";
-import Form from "./Form/Form";
-const ProfileContainer = ({ username }) => {
-  return (
-    <div className="profile-container">
-      <ul className="list list--ul profile__data__list">
-        <li className="list-item profile__data__list-item profile__data__list-item--username">
-          Hello, {username}!
-        </li>
-        <li className="list-item profile__data__list-item">
-          Wanna change your data?
-        </li>
-        <li className="list-item profile__data__list-item">
-          <Form />
-        </li>
-      </ul>
-    </div>
-  );
+import ProfileSettings from "./ProfileSettings";
+
+const renderSwitch = (pathname) => {
+  switch (pathname) {
+    case "/profile":
+      return <ProfileSettings username="test_user" />;
+      break;
+    case "/profile/teams":
+      return <div>teams</div>;
+      break;
+    case "/profile/matches":
+      return <div>matches</div>;
+      break;
+  }
+};
+
+const ProfileContainer = ({ pathname }) => {
+  console.log(pathname);
+  return <div className="profile-container">{renderSwitch(pathname)} </div>;
 };
 
 export default ProfileContainer;
