@@ -7,4 +7,9 @@ teams.get("/", async (req, res, next) => {
   res.send(response);
 });
 
+teams.get("/ranking", async (req, res, next) => {
+  const response = await HLTV.getTeamRanking();
+  res.send(response);
+});
+
 module.exports = teams;

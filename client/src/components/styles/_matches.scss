@@ -69,3 +69,30 @@
     }
   }
 }
+
+.user-matches {
+  &__heading {
+  }
+  &__list {
+    &-item {
+      display: flex;
+      .heading {
+        flex-basis: 40rem;
+      }
+      .link {
+      }
+    }
+  }
+  &__link {
+    color: $secondaryColor;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    max-width: 10rem;
+    transition: 0.25s ease-in-out;
+    &:hover {
+      background: $whiteColor;
+      color: $darkColor;
+      border-radius: 0.6rem;
+    }
+  }
+}

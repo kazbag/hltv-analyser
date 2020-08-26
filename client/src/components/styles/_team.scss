@@ -1,0 +1,16 @@
+.ranking {
+  &__heading {
+  }
+}
+
+.team {
+  &--stable {
+    color: grey;
+  }
+  &--drop {
+    color: red;
+  }
+  &--grow {
+    color: green;
+  }
+}

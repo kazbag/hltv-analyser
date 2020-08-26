@@ -9,6 +9,7 @@ matches.get("/", async (req, res, next) => {
 
 matches.get("/user-matches", async (req, res, next) => {
   try {
+    console.log("log");
     const allMatches = await MatchesModel.find().exec();
     res.send(allMatches);
   } catch (err) {

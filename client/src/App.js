@@ -4,6 +4,7 @@ import ProfilePage from "./pages/ProfilePage";
 import AllMatches from "./pages/AllMatches";
 import LiveMatches from "./pages/LiveMatches";
 import OfflineMatches from "./pages/OfflineMatches";
+import Ranking from "./components/Ranking";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Navbar from "./components/Navbar";
@@ -24,6 +25,7 @@ const App = () => {
             <Route exact path="/profile" component={ProfilePage} />
             <Route path="/profile/teams" component={ProfilePage} />
             <Route path="/profile/matches" component={ProfilePage} />
+            <Route path="/ranking" component={Ranking} />
           </Switch>
         </Router>
       </div>

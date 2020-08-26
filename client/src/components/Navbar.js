@@ -16,9 +16,9 @@ const Navbar = () => {
         <span></span>
         <p>Upcoming</p>
       </NavLink>
-      <NavLink className="nav__link" to="/matches/history">
+      <NavLink className="nav__link" to="/ranking">
         <span></span>
-        <p>History</p>
+        <p>Ranking</p>
       </NavLink>
       <NavLink className="nav__link" to="/profile">
         <span></span>
