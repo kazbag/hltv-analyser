@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileSettings from "./ProfileSettings";
-
+import UserMatches from "./UserMatches";
 const renderProfileComponentSwitch = (currentPath) => {
   switch (currentPath) {
     case "/profile":
@@ -10,7 +10,7 @@ const renderProfileComponentSwitch = (currentPath) => {
       return <div>teams</div>;
       break;
     case "/profile/matches":
-      return <div>matches</div>;
+      return <UserMatches />;
       break;
   }
 };
