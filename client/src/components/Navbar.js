@@ -8,6 +8,10 @@ const Navbar = () => {
         <span></span>
         <p>Homepage</p>
       </NavLink>
+      <NavLink className="nav__link" to="/login">
+        <span></span>
+        <p>Log in</p>
+      </NavLink>
       <NavLink className="nav__link" to="/matches/live">
         <span></span>
         <p>Live</p>

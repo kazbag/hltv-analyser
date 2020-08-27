@@ -1,18 +1,14 @@
 import React from "react";
 
 const Button = ({
-  type = "submit",
+  text = "Provide text pls",
+  type,
   name,
-  text = "Please, fill me",
-  style,
+  id,
+  addictionalClasses,
   onClick,
 }) => (
-  <button
-    type={type}
-    name={name}
-    className={`button form__button `}
-    onClick={onClick}
-  >
+  <button onClick={onClick} className={`button ${addictionalClasses}`}>
     {text}
   </button>
 );
