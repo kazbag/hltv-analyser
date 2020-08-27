@@ -32,7 +32,7 @@ const App = () => {
             <Route path="/profile/teams" component={ProfilePage} />
             <Route path="/profile/matches" component={ProfilePage} />
             <Route path="/ranking" component={Ranking} />
-            <Route path="/login" component={LoginPage} />
+            <Route exact path="/account-management" component={LoginPage} />
           </Switch>
         </Router>
       </div>

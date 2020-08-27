@@ -53,3 +53,61 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.radio__container {
+  display: block;
+  position: relative;
+  padding-left: 3.5rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  font-size: 2.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.25s;
+  &:hover input ~ .radio__checkmark {
+    background: rgba($whiteColor, 0.85);
+  }
+  input:checked ~ .radio__checkmark {
+    background-color: $secondaryColor;
+  }
+  input:checked ~ .radio__checkmark:after {
+    display: block;
+  }
+  .radio__checkmark:after {
+    left: 0.8rem;
+    top: 0;
+    width: 10px;
+    height: 20px;
+    border: solid $darkColor;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  input {
+    transition: 0.25s;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+  .radio__checkmark {
+    transition: 0.25s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: $whiteColor;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+}
