@@ -40,7 +40,7 @@ const Ranking = () => {
           )}`}
         >
           {team.change > 0 && "+"}
-          {team.change}
+          {team.change === 0 ? "-" : team.change}
         </span>
       </h4>
     </li>

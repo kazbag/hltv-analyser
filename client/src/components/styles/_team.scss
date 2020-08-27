@@ -5,12 +5,12 @@
 
 .team {
   &--stable {
-    color: grey;
+    color: rgba($whiteColor, 0.8);
   }
   &--drop {
-    color: red;
+    color: $errorColor;
   }
   &--grow {
-    color: green;
+    color: $successColor;
   }
 }
