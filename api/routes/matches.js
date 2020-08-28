@@ -18,7 +18,6 @@ matches.get("/user-matches", async (req, res, next) => {
 });
 
 matches.post("/user-matches", async (req, res, next) => {
-  console.log(req.body);
   const { event, id, live, stars, team1, team2 } = req.body.matchData || {};
   const newUserMatch = new MatchesModel({
     event,

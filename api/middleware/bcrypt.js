@@ -12,9 +12,10 @@ const encryptPassword = async (password) => {
   return hashedPassword;
 };
 
-const decryptPassword = async (password) => {
-  const validPassword = await bcrypt.compare(password, user.password);
+const decryptPassword = async (encryptedPassword, userPassword) => {
+  const validPassword = await bcrypt.compare(encryptedPassword, userPassword);
   return validPassword ? true : false;
 };
 
-module.exports = { encryptPassword, decryptPassword };
+module.exports.encryptPassword = encryptPassword;
+module.exports.decryptPassword = decryptPassword;

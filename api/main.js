@@ -33,6 +33,7 @@ connectDB().then(() => {
 
 const matchesRoute = require("./routes/matches");
 const teamsRoute = require("./routes/teams");
+const usersRoute = require("./routes/users");
 
 const express = require("express");
 const app = express();
@@ -43,5 +44,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/matches", matchesRoute);
 app.use("/teams", teamsRoute);
+app.use("/users", usersRoute);
 
 app.listen(PORT, () => console.log(`API started at: http://localhost:${PORT}`));
