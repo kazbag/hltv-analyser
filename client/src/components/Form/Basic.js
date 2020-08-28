@@ -41,23 +41,29 @@ const Basic = () => (
           <CustomRadio label="Register me">
             <Field type="radio" value="register" name="target" />
           </CustomRadio>
-          <ErrorMessage name="email" component="div" className="form__error" />
+          <label className="label form__label" htmlFor="email">
+            Email
+          </label>
           <Field
             type="email"
             name="email"
             className="input"
-            placeholder="Email"
+            placeholder="Enter your email"
+          />
+          <ErrorMessage name="email" component="div" className="form__error" />
+          <label className="label form__label" htmlFor="password">
+            Password
+          </label>
+          <Field
+            type="password"
+            name="password"
+            className="input"
+            placeholder="Enter your password"
           />
           <ErrorMessage
             name="password"
             component="div"
             className="form__error"
-          />
-          <Field
-            type="password"
-            name="password"
-            className="input"
-            placeholder="Password"
           />
           <Button
             text="Submit"
