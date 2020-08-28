@@ -88,7 +88,7 @@ const MatchCard = (props) => {
         text="Save match"
         type="button"
         name="button--favourite"
-        style="white"
+        addictionalClasses="button--light"
         onClick={() => addMatchToFavourites(matchData)}
       ></Button>
     </li>

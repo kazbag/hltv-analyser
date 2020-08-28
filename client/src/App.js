@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+import LoginPage from "./pages/LoginPage";
 import Homepage from "./pages/Homepage";
 import ProfilePage from "./pages/ProfilePage";
 import AllMatches from "./pages/AllMatches";
@@ -12,6 +14,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./components/styles/main.scss";
 
 const App = () => {
+  useEffect(() => {
+    console.log("useeffect");
+  }, []);
+
   return (
     <Provider store={store}>
       <div className="App">
@@ -26,6 +32,7 @@ const App = () => {
             <Route path="/profile/teams" component={ProfilePage} />
             <Route path="/profile/matches" component={ProfilePage} />
             <Route path="/ranking" component={Ranking} />
+            <Route exact path="/account-management" component={LoginPage} />
           </Switch>
         </Router>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import Form from "./Form/Form";
 
 const ProfileSettings = ({ username }) => {
   return (
@@ -10,9 +9,7 @@ const ProfileSettings = ({ username }) => {
       <li className="list-item profile__data__list-item">
         Wanna change your data?
       </li>
-      <li className="list-item profile__data__list-item">
-        <Form />
-      </li>
+      <li className="list-item profile__data__list-item"></li>
     </ul>
   );
 };
