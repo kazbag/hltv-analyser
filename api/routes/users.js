@@ -30,4 +30,24 @@ users.post("/register", async (req, res, next) => {
   }
 });
 
+users.post("/login", async (req, res, next) => {
+  try {
+    const { email, password } = req.body.user;
+    const userInDatabase = await UserModel.find({ email: email }).exec();
+
+    if (userInDatabase.length === 0) {
+      return res.send("User doesn't exist in database.");
+    }
+
+    const isPasswordValid = await decryptPassword(
+      password,
+      userInDatabase[0].password
+    );
+
+    res.send(isPasswordValid);
+  } catch (err) {
+    res.status(500).send("Can't login user, due the internal error.");
+  }
+});
+
 module.exports = users;
