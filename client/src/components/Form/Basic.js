@@ -3,6 +3,21 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Button from "./Button";
 import CustomRadio from "./CustomRadio";
+import axios from "axios";
+import { apiUri } from "../../cfg";
+
+const handleUserDataRequest = (userData) => {
+  const { email, password, target } = userData;
+  const user = {
+    email,
+    password,
+  };
+  console.log(user);
+  axios
+    .post(`${apiUri}/users/${target}`, { user })
+    .then((response) => console.log(response))
+    .catch((err) => console.log(err));
+};
 
 const Basic = () => (
   <Formik
@@ -26,10 +41,11 @@ const Basic = () => (
       return errors;
     }}
     onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-      }, 400);
+      // setTimeout(() => {
+      //   alert(JSON.stringify(values, null, 2));
+      //   setSubmitting(false);
+      // }, 400);
+      handleUserDataRequest(values);
     }}
   >
     {({ isSubmitting }) => {
