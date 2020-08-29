@@ -34,9 +34,45 @@
 - Redux with thunk
 - Node.js & Express.js
 - Axios for simplify HTTP requests instead of fetch API
+- JWT
 
 ## Known bugs and todos
 
 - Redux should be moved one layer above to restrain amount of requests
 - RWD doesn't exists yet
 - You have to provide "SKIP\*PREFLIGHT_CHECK=true" into \*\*\*.env\_\*\* file to run app
+
+## API Endpoints
+
+# /api
+
+| ENDPOINT   | TYPE |                                DESCRIPTION |
+| ---------- | :--: | -----------------------------------------: |
+| /login     | POST |                 Login mocked user with JWT |
+| /test-auth | POST | Endpoint for testing that /api/login works |
+
+# /matches
+
+| ENDPOINT          |  TYPE  |                                              DESCRIPTION |
+| ----------------- | :----: | -------------------------------------------------------: |
+| /                 |  GET   |                   Return all available matches from HLTV |
+| /user-matches     |  GET   | Return matches added to favourites by user from database |
+| /user-matches     |  POST  |                                  Add match to favourites |
+| /user-matches/:id | DELETE |                       Delete match from favourites by id |
+| /user-matches-all | DELETE |                            "DROP" user favourite matches |
+
+# /teams
+
+| ENDPOINT | TYPE |                   DESCRIPTION |
+| -------- | :--: | ----------------------------: |
+| /:id     | GET  |   Return team from HLTV by id |
+| /ranking | GET  | Return top 30 teams from HLTV |
+
+# /users
+
+| ENDPOINT    |  TYPE  |               DESCRIPTION |
+| ----------- | :----: | ------------------------: |
+| /           |  GET   |                     #todo |
+| /register   |  POST  | Register user in database |
+| /login      |  POST  |                Login user |
+| /delete-all | DELETE |              "DROP" users |

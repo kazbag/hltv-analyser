@@ -2,8 +2,6 @@ const users = require("express").Router();
 const { encryptPassword, decryptPassword } = require("../middleware/bcrypt");
 const UserModel = require("../models/UserModel");
 
-const checkThatUserAlreadyExists = (user) => {};
-
 users.get("/", async (req, res, next) => {
   const response = await UserModel.find().exec();
   res.send(response);
