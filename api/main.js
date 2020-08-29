@@ -31,6 +31,7 @@ connectDB().then(() => {
   console.log("connected to db");
 });
 
+const apiRoute = require("./routes/api");
 const matchesRoute = require("./routes/matches");
 const teamsRoute = require("./routes/teams");
 const usersRoute = require("./routes/users");
@@ -42,6 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
+app.use("/api", apiRoute);
 app.use("/matches", matchesRoute);
 app.use("/teams", teamsRoute);
 app.use("/users", usersRoute);
