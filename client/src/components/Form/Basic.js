@@ -12,11 +12,16 @@ const handleUserDataRequest = (userData) => {
     email,
     password,
   };
-  console.log(user);
   axios
-    .post(`${apiUri}/users/${target}`, { user })
-    .then((response) => console.log(response))
-    .catch((err) => console.log(err));
+    .post(`${apiUri}/api/${target}`, { user })
+    .then((response) => {
+      console.log(response.data.token);
+      if (response.data.token) {
+        localStorage.clear();
+        localStorage.setItem("token", response.data.token);
+      }
+    })
+    .catch((err) => console.log(err.message));
 };
 
 const Basic = () => (

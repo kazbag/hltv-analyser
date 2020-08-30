@@ -22,7 +22,7 @@ const connectDB = async () => {
     console.log("Mongoose connected");
     return connection;
   } catch (err) {
-    console.log("MoongoDB not connected", err);
+    console.log("Mongoose not connected", err);
   }
   return null;
 };
@@ -40,7 +40,7 @@ const express = require("express");
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded());
 
 app.use(cors());
 app.use("/api", apiRoute);
