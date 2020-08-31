@@ -1,5 +1,26 @@
 import React from "react";
 import Basic from "../components/Form/Basic";
+import axios from "axios";
+import { apiUri } from "../cfg";
+
+const handleUserDataRequest = (userData) => {
+  const { email, password, target } = userData;
+  console.log(userData);
+  const user = {
+    email,
+    password,
+  };
+  axios
+    .post(`${apiUri}/api/${target}`, { user })
+    .then((response) => {
+      console.log(response.data.token);
+      if (response.data.token) {
+        localStorage.clear();
+        localStorage.setItem("token", response.data.token);
+      }
+    })
+    .catch((err) => console.log(err.message));
+};
 
 const LoginPage = () => {
   return (
@@ -7,7 +28,7 @@ const LoginPage = () => {
       <h3 className="heading heading--title heading-3">
         Log in or create an account
       </h3>
-      <Basic />
+      <Basic handleUserDataRequest={handleUserDataRequest} />
     </section>
   );
 };
