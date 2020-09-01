@@ -23,38 +23,16 @@ before(function (done) {
 chai.should();
 chai.use(chaiHttp);
 
-// Test GET all matches
-
-describe("GET /matches", () => {
-  it("Should get all available the matches from HLTV (at least 1)", (done) => {
+describe("GET /teams/ranking", () => {
+  it("Should be able to get top 30 teams", (done) => {
     chai
       .request(API_URI)
-      .get("/matches")
+      .get("/teams/ranking")
       .end((err, response) => {
         response.should.have.status(200);
-        response.body.should.be.an("array");
-        response.body.length.should.be.greaterThan(0);
+        response.body.should.be.a("array");
+        response.body.should.have.length(30);
         done();
       });
   });
 });
-
-// Test GET match by id
-
-describe("GET /matches/:id", () => {
-  it("Should get specific match from HLTV by id", (done) => {
-    const matchId = 2290762;
-    chai
-      .request(API_URI)
-      .get("/matches/" + matchId)
-      .end((err, response) => {
-        response.should.have.status(200);
-        response.should.be.a("object");
-        response.body.should.have.property("id");
-        response.body.should.have.property("format");
-        done();
-      });
-  });
-});
-
-// describe;
