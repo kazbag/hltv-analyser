@@ -21,7 +21,7 @@ const MatchCard = (props) => {
     axios
       .post(`${apiUri}/matches/user-matches`, { matchData })
       .then((res) => {
-        console.log(res.status);
+        console.log(JSON.stringify(matchData));
         if (res.status === 200) {
           showToast();
         }
