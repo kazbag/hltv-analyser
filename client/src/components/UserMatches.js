@@ -25,6 +25,7 @@ const UserMatches = () => {
   };
 
   const renderUserMatches = userMatches.userMatches.map((match, index) => (
+    // TODO: change match model, app is dead if match is TBA
     <li className="list-item user-matches__list-item" key={index}>
       <h4 className="heading heading-4 user-matches__heading">
         {match.team1.name} vs {match.team2.name}

@@ -4,7 +4,7 @@ const chaiHttp = require("chai-http");
 const API = require("../main");
 const API_URI = process.env.API_URI || "http://localhost:3001";
 const DATABASE_URI =
-  process.env.DATABASE_URI || "mongodb://localhost/hltv_database_dev";
+  process.env.TEST_DATABASE_URI || "mongodb://localhost/test_hltv_database";
 const UserModel = require("../models/UserModel");
 var Mongoose = require("mongoose").Mongoose;
 var mongoose = new Mongoose();
@@ -16,7 +16,7 @@ before(function (done) {
   mockMongoose.prepareStorage().then(function () {
     mongoose.connect(DATABASE_URI, function (err) {
       UserModel.deleteMany().then((result) => {
-        console.log("Cleaned database");
+        console.log("Cleaned Users/API database");
       });
       done(err);
     });

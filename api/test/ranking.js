@@ -4,7 +4,7 @@ const chaiHttp = require("chai-http");
 const API = require("../main");
 const API_URI = process.env.API_URI || "http://localhost:3001";
 const DATABASE_URI =
-  process.env.DATABASE_URI || "mongodb://localhost/hltv_database_dev";
+  process.env.TEST_DATABASE_URI || "mongodb://localhost/test_hltv_database";
 
 var Mongoose = require("mongoose").Mongoose;
 var mongoose = new Mongoose();
@@ -15,6 +15,10 @@ var mockMongoose = new MockMongoose(mongoose);
 before(function (done) {
   mockMongoose.prepareStorage().then(function () {
     mongoose.connect(DATABASE_URI, function (err) {
+      // TODO: create model for team
+      // RankingModel.deleteMany().then((result) => {
+      // console.log("Cleaned database");
+      // });
       done(err);
     });
   });

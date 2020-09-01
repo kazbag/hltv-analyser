@@ -41,6 +41,7 @@ export const fetchUserMatches = () => {
       .get(`${apiUri}/matches/user-matches`)
       .then((res) => {
         const userMatches = res.data;
+        console.log(res.data[0]);
         return dispatch(fetchUserMatchesSuccess(userMatches));
       })
       .catch((err) => {

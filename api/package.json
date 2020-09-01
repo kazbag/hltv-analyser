@@ -2,7 +2,7 @@
   "name": "api",
   "version": "0.1.1",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "mocha --timeout 120000",
     "start:dev": "nodemon main.js"

@@ -7,7 +7,7 @@ matches.get("/", async (req, res, next) => {
   res.json(response);
 });
 
-matches.get("/:id", async (req, res, next) => {
+matches.get("/match/:id", async (req, res, next) => {
   const matchId = req.params.id;
   const response = await HLTV.getMatch({ id: matchId });
   res.json(response);
@@ -15,7 +15,6 @@ matches.get("/:id", async (req, res, next) => {
 
 matches.get("/user-matches", async (req, res, next) => {
   try {
-    console.log("log");
     const allMatches = await MatchesModel.find().exec();
     res.send(allMatches);
   } catch (err) {
