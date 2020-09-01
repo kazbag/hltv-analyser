@@ -43,7 +43,6 @@ api.post("/login", async (req, res, next) => {
   } catch (err) {
     res.status(500).send("Can't login user, due the internal error.");
   }
-  //
 });
 
 api.post("/register", async (req, res, next) => {
