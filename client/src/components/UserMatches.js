@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { fetchUserMatches } from "../redux";
 import { connect, useSelector, useDispatch } from "react-redux";
 import Loading from "../components/Loading";
+import ErrorMessage from "../components/ErrorMessage";
 const UserMatches = () => {
   const [userMatchesData, setUserMatchesData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const userMatches = useSelector((state) => state.userMatches);
   const dispatch = useDispatch();
 
@@ -13,6 +15,7 @@ const UserMatches = () => {
 
   useEffect(() => {
     setUserMatchesData(userMatches.userMatches);
+    setLoading(false);
   }, [userMatches]);
 
   const isAtLeastOneMatchAvailable = userMatches.userMatches.length > 0;
@@ -28,7 +31,7 @@ const UserMatches = () => {
     // TODO: change match model, app is dead if match is TBA
     <li className="list-item user-matches__list-item" key={index}>
       <h4 className="heading heading-4 user-matches__heading">
-        {match.team1.name} vs {match.team2.name}
+        {index + 1}. {match.team1.name} vs {match.team2.name}
       </h4>
       <a
         className="link user-matches__link"
@@ -49,8 +52,15 @@ const UserMatches = () => {
 
   if (isAtLeastOneMatchAvailable) {
     return <ul className="list user-matches__list">{renderUserMatches}</ul>;
-  } else {
+  } else if (loading) {
     return <Loading />;
+  } else {
+    return (
+      <ErrorMessage
+        type="warning"
+        message="You have to add at least one match to your favourites"
+      />
+    );
   }
 };
 
