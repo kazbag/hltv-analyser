@@ -18,7 +18,6 @@ const MatchCard = (props) => {
   };
 
   const addMatchToFavourites = (matchData) => {
-    console.log(matchData);
     axios
       .post(`${apiUri}/matches/user-matches`, {
         id: matchData.id,
@@ -89,13 +88,15 @@ const MatchCard = (props) => {
           </a>
         </div>
       ) : null}
-      <Button
-        text="Save match"
-        type="button"
-        name="button--favourite"
-        addictionalClasses="button--light"
-        onClick={() => addMatchToFavourites(matchData)}
-      ></Button>
+      {team1 && team1.name && (
+        <Button
+          text="Save match"
+          type="button"
+          name="button--favourite"
+          addictionalClasses="button--light"
+          onClick={() => addMatchToFavourites(matchData)}
+        ></Button>
+      )}
     </li>
   );
 };
