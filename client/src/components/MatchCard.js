@@ -18,16 +18,21 @@ const MatchCard = (props) => {
   };
 
   const addMatchToFavourites = (matchData) => {
+    console.log(matchData);
     axios
-      .post(`${apiUri}/matches/user-matches`, { matchData })
+      .post(`${apiUri}/matches/user-matches`, {
+        id: matchData.id,
+        team1: matchData.team1,
+        team2: matchData.team2,
+        event: matchData.event,
+      })
       .then((res) => {
-        console.log(JSON.stringify(matchData));
         if (res.status === 200) {
           showToast();
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
       });
   };
 

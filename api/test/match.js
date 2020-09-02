@@ -76,9 +76,21 @@ describe("POST /matches/user-matches", () => {
       .post("/matches/user-matches")
       .send(matchData)
       .end((err, response) => {
-        console.log("xxx");
-        console.log(matchData);
         response.should.have.status(200);
+        done();
+      });
+  });
+});
+
+describe("DELETE /matches/user-matches", () => {
+  it("Should delete user match by id", (done) => {
+    const matchId = 2343602;
+    chai
+      .request(API_URI)
+      .delete("/matches/user-matches/" + matchId)
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.should.be(`Match ${matchId} has been deleted successfully`);
         done();
       });
   });

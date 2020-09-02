@@ -50,3 +50,11 @@
     font-size: 1.6rem;
   }
 }
+
+.error {
+  color: $errorColor;
+  font-size: $paragraphTextSize;
+  &--warning {
+    color: $warningColor;
+  }
+}

@@ -1,7 +1,7 @@
 const MatchesModel = require("../models/MatchModel");
 const matches = require("express").Router();
 const { HLTV } = require("hltv");
-
+const { handleUserFavouriteMatch } = require("../middleware/validation");
 matches.get("/", async (req, res, next) => {
   const response = await HLTV.getMatches();
   res.json(response);
@@ -23,12 +23,12 @@ matches.get("/user-matches", async (req, res, next) => {
 });
 
 matches.post("/user-matches", async (req, res, next) => {
-  const { event, id, live, stars, team1, team2 } = req.body.matchData || {};
+  const { error } = handleUserFavouriteMatch(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  const { event, id, team1, team2 } = req.body;
   const newUserMatch = new MatchesModel({
-    event,
     id,
-    live,
-    stars,
+    event,
     team1,
     team2,
   });
@@ -42,10 +42,11 @@ matches.post("/user-matches", async (req, res, next) => {
 
 matches.delete("/user-matches/:id", async (req, res, next) => {
   try {
+    const matchId = req.params.id;
     const deletedUserMatch = await MatchesModel.deleteOne({
-      _id: req.params.id,
+      id: matchId,
     }).exec();
-    res.json(deletedUserMatch);
+    res.status(200).send(`Match ${matchId} has been deleted successfully`);
   } catch (err) {
     res.status(500).send(err);
   }
