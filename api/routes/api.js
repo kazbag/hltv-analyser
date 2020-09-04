@@ -60,7 +60,7 @@ api.post("/register", async (req, res, next) => {
   });
   try {
     const savedUser = await newUser.save();
-    res.send("You have been registered!");
+    res.status(201).send("You have been registered!");
   } catch (err) {
     res.status(500).send(err);
   }

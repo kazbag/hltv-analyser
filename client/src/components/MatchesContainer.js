@@ -53,9 +53,16 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
         <ul className="matches__container__matches">
           {liveMatchesData.length < 1
             ? "loading"
-            : liveMatchesData.map((match, index) => (
-                <MatchCard key={index} props={match} />
-              ))}
+            : liveMatchesData.map((match, index) => {
+                if (
+                  match.team1 &&
+                  match.team1.name &&
+                  match.team2 &&
+                  match.team2.name
+                ) {
+                  return <MatchCard key={index} props={match} />;
+                }
+              })}
         </ul>
       </div>
     );
@@ -66,9 +73,16 @@ const MatchesContainer = ({ allMatches, liveMatches, offlineMatches }) => {
         <ul className="matches__container__matches">
           {offlineMatchesData.length < 1
             ? "loading"
-            : offlineMatchesData.map((match, index) => (
-                <MatchCard key={index} props={match} />
-              ))}
+            : offlineMatchesData.map((match, index) => {
+                if (
+                  match.team1 &&
+                  match.team1.name &&
+                  match.team2 &&
+                  match.team2.name
+                ) {
+                  return <MatchCard key={index} props={match} />;
+                }
+              })}
         </ul>
       </div>
     );
