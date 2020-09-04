@@ -26,6 +26,13 @@ matches.post("/user-matches", async (req, res, next) => {
   const { error } = handleUserFavouriteMatch(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   const { event, id, team1, team2 } = req.body;
+  const doesMatchAlreadyExists = await MatchesModel.findOne({ id: id }).exec();
+  if (doesMatchAlreadyExists) {
+    return res
+      .status(409)
+      .send("You have already added this match to favourites!");
+  }
+  console.log(doesMatchAlreadyExists);
   const newUserMatch = new MatchesModel({
     id,
     event,

@@ -9,6 +9,7 @@ const MatchCard = (props) => {
 
   const { event, id, date, format, live, stars, team1, team2 } = props.props;
   const [matchData, setMatchData] = useState({});
+  const [toastMessage, setToastMessage] = useState("Added match to favourite!");
 
   const showToast = () => {
     setIsToastVisible(true);
@@ -26,12 +27,14 @@ const MatchCard = (props) => {
         event: matchData.event,
       })
       .then((res) => {
-        if (res.status === 200) {
-          showToast();
-        }
+        setToastMessage("Added match to favourite!");
       })
       .catch((err) => {
-        console.log(err.message);
+        setToastMessage("You've already added this match!");
+        console.log(err);
+      })
+      .finally(() => {
+        showToast();
       });
   };
 
@@ -41,10 +44,7 @@ const MatchCard = (props) => {
 
   return (
     <li className="match__item">
-      <Toast
-        toastVisible={isToastVisible}
-        message="Added match to favourite!"
-      />
+      <Toast toastVisible={isToastVisible} message={toastMessage} />
 
       <h6 className="heading heading--darken heading--title--small heading-6 match__heading">
         {event ? event.name : "TBA"}
