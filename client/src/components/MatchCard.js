@@ -38,6 +38,11 @@ const MatchCard = (props) => {
       });
   };
 
+  const generateMatchURL = () => {
+    // you don't have to provide full URL, hltv server parses link if match id is ok
+    return `https://hltv.org/matches/${id}/match`;
+  };
+
   useEffect(() => {
     setMatchData(props.props);
   }, [props.props]);
@@ -96,6 +101,16 @@ const MatchCard = (props) => {
           addictionalClasses="button--light"
           onClick={() => addMatchToFavourites(matchData)}
         ></Button>
+      )}
+      {team1 && team1.name && team2 && team2.name && (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          className="match__link "
+          href={generateMatchURL()}
+        >
+          Show match
+        </a>
       )}
     </li>
   );
