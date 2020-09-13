@@ -93,7 +93,7 @@ const MatchCard = (props) => {
           </a>
         </div>
       ) : null}
-      {team1 && team1.name && (
+      <div className="match__actions">
         <Button
           text="Save match"
           type="button"
@@ -101,17 +101,15 @@ const MatchCard = (props) => {
           addictionalClasses="button--light"
           onClick={() => addMatchToFavourites(matchData)}
         ></Button>
-      )}
-      {team1 && team1.name && team2 && team2.name && (
         <a
           target="_blank"
           rel="noopener noreferrer"
-          className="match__link "
+          className="match__link match__link--dark"
           href={generateMatchURL()}
         >
           Show match
         </a>
-      )}
+      </div>
     </li>
   );
 };

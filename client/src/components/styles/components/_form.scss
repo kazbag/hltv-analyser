@@ -1,13 +1,11 @@
 .button {
   padding: 0.75rem 1.5rem;
-  margin-top: 2rem;
-  background: $secondaryColor;
-  color: rgba($darkColor, 0.8);
-  border-radius: 0.6rem;
+  color: $successColor;
+  background: rgba($darkColor, 0.8);
   border: none;
-  font-weight: bold;
   transition: 0.25s ease-in-out;
   max-width: 20rem;
+
   &:hover {
     background: $whiteColor;
     color: $darkColor;
@@ -20,17 +18,19 @@
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   &__label {
     margin-top: 1rem;
     margin-left: 0.5rem;
     font-size: 1.2rem;
-    // margin-bottom: 0.5rem;
   }
   &__error {
     color: $errorColor;
     margin-top: 1rem;
     font-size: 1.2rem;
-    // margin: 0.5rem;
+  }
+  &__button {
+    margin-top: 2rem;
   }
 }
 .input {

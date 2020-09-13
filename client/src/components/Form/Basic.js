@@ -70,7 +70,7 @@ const Basic = ({ handleUserDataRequest }) => (
             text="Submit"
             name="login-button"
             id="login-button"
-            addictionalClasses="form__button form__button--submit"
+            addictionalClasses="form__button form__button--submit "
             type="submit"
             disabled={isSubmitting}
           />

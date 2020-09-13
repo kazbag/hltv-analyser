@@ -32,7 +32,6 @@ matches.post("/user-matches", async (req, res, next) => {
       .status(409)
       .send("You have already added this match to favourites!");
   }
-  console.log(doesMatchAlreadyExists);
   const newUserMatch = new MatchesModel({
     id,
     event,
